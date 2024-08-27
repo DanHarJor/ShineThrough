@@ -1,0 +1,4 @@
+name: ascot_ml
+channels:
+  - defaults
+prefix: /home/djdaniel/anaconda3/envs/ascot_ml
