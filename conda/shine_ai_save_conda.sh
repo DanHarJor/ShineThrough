@@ -1,1 +1,1 @@
-conda env export --name ascot_ml > shine_ai_env.yml
+conda env export --name shine_ai > shine_ai_env.yml

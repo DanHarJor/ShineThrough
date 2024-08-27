@@ -9,7 +9,7 @@ class Parser():
         self.inputs = self.inputs()
 
 
-        self.experiment_labels = self.experiment_labels()
+        self.experiment_labels = self.get_experiment_labels()
 
     def inputs(self):
         inputs_labels = [str(i[0]) for i in self.mat['data'][0][0][0][0][1:]]
@@ -20,7 +20,7 @@ class Parser():
         inputs['injector_number'] = np.array([False, True]) #false for off axis and True for on axis
         return inputs
     
-    def experiment_labels(self):
+    def get_experiment_labels(self):
         return [str(i[0]) for i in (self.mat['data'][0][0][3][0][0][0])]
     
     def data(self, experiment_index):
@@ -31,7 +31,8 @@ class Parser():
         shine_through = []
         for index in all_combinations_index:
             shine_through.append(shine_through_mat[*index])
-        
+        shine_through = np.array(shine_through)
+
         samples = {}
         for i, key in enumerate(list(self.inputs.keys())):
             samples[key] = all_combinations.T[i]
