@@ -15,7 +15,7 @@ class Exponential():
         raise NotImplemented
     
     def fun(self, n_avg, n_peak, E_nbi, OnOffAxis):
-        # n_avg = n_avg*1e-19
+        n_avg = n_avg*1e-19
         a = self.coefficients['alpha']
         b = self.coefficients['beta']
         g = self.coefficients['gamma']
@@ -33,6 +33,8 @@ class Exponential():
         for xi in x:
             # print(xi) 
             y_predict.append(self.fun(*xi))
+            print('ans',xi, self.fun(*xi))
+            
         # print('y', y_predict)
         return y_predict
     
